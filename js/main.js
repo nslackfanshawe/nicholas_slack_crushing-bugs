@@ -2,10 +2,12 @@ console.log("JavaScript File is linked");
 
 const labels = document.querySelectorAll(".label");
 const targetZones = document.querySelectorAll(".target-zone");
+const resetButton = document.querySelector("#reset-btn");
+const labelBox = document.querySelector("#label-box");
+const originalLabels = Array.from(labels);
 let currentDraggedElement = null;
 
 //add variable for reset button;
-//comment
 //event listeners
 labels.forEach(label => {
     label.addEventListener("dragstart", dragStart);
@@ -39,3 +41,12 @@ function dropped(e) {
     currentDraggedElement = null;
 }
 
+function moveLabelBack(label) {
+    labelBox.appendChild(label);
+}
+
+function resetLabels() {
+    originalLabels.forEach(moveLabelBack);
+}
+
+resetButton.addEventListener("click", resetLabels);
