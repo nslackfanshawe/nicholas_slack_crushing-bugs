@@ -39,6 +39,8 @@ function dropped(e) {
 
     this.appendChild(currentDraggedElement);
     currentDraggedElement = null;
+
+    this.style.backgroundColor = "rgba(200, 200, 200, 0.2)";
 }
 
 function moveLabelBack(label) {
@@ -50,3 +52,18 @@ function resetLabels() {
 }
 
 resetButton.addEventListener("click", resetLabels);
+
+function handleDragEnter() {
+    this.style.backgroundColor = "rgba(80,206,22,0.3)";
+}
+
+function handleDragLeave() {
+    this.style.backgroundColor = "rgba(200, 200, 200, 0.2)";
+}
+
+targetZones.forEach(addHighlight);
+
+function addHighlight(zone) {
+    zone.addEventListener("dragenter", handleDragEnter);
+    zone.addEventListener("dragleave", handleDragLeave);
+}
