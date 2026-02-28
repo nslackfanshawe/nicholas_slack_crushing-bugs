@@ -5,7 +5,7 @@ const targetZones = document.querySelectorAll(".target-zone");
 let currentDraggedElement = null;
 
 //add variable for reset button;
-
+//comment
 //event listeners
 labels.forEach(label => {
     label.addEventListener("dragstart", dragStart);
